@@ -61,7 +61,7 @@ export const DraggableNode = ({ type, label }) => {
         backgroundColor: "#0564b5",
         justifyContent: "center",
         flexDirection: "column",
-        position: "relative", // Ensure relative positioning for child elements
+        position: "relative",
       }}
       draggable
     >

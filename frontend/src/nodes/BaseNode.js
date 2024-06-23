@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Handle, Position, useUpdateNodeInternals } from "reactflow";
+import TextareaAutosize from "react-textarea-autosize";
 
 const BaseNode = ({ id, data, title, inputs, handles }) => {
   const [text, setText] = useState(data.text || "");
   const [patternMatches, setPatternMatches] = useState([]);
   const updateNodeInternals = useUpdateNodeInternals();
+  const nodeRef = useRef(null);
 
-  // Function to find all handle patterns in text
+  // function to find all handle patterns in text
   const findHandlePatterns = (text) => {
     const regex = /\{\{(.+?)\}\}/g;
     const matches = [];
@@ -17,11 +19,21 @@ const BaseNode = ({ id, data, title, inputs, handles }) => {
     return matches;
   };
 
-  // Effect to update patternMatches whenever text changes
   useEffect(() => {
+    // update patternMatches whenever text changes
     const matches = findHandlePatterns(text);
     setPatternMatches(matches);
     updateNodeInternals(id); // Update node internals when patterns change
+
+    // to adjust the size of node as per text
+    const nodeElement = nodeRef.current;
+    if (nodeElement) {
+      const textareaElement = nodeElement.querySelector("textarea");
+      if (textareaElement) {
+        const { offsetHeight } = textareaElement;
+        nodeElement.style.height = `${offsetHeight + 50}px`;
+      }
+    }
   }, [text, id, updateNodeInternals, patternMatches, handles]);
 
   const handleChange = (e, key) => {
@@ -30,6 +42,7 @@ const BaseNode = ({ id, data, title, inputs, handles }) => {
 
   return (
     <div
+      ref={nodeRef} // Attach the ref to the node element
       style={{
         position: "relative",
         width: 200,
@@ -65,14 +78,12 @@ const BaseNode = ({ id, data, title, inputs, handles }) => {
                 ))}
               </select>
             ) : input.type === "textarea" ? (
-              <textarea
+              <TextareaAutosize
                 value={text}
+                minRows={2}
+                maxRows={16}
                 onChange={(e) => handleChange(e, input.key)}
-                style={{
-                  marginLeft: 10,
-                  width: "calc(100% - 60px)",
-                  minHeight: "60px",
-                }}
+                style={{ width: "100%" }} // Use full width of the node
               />
             ) : (
               <input

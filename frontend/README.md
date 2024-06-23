@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Pipeline Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Pipeline Project, an application built using ReactFlow for the frontend and FastAPI for the backend. This project aims to provide a seamless and efficient way to create, manage, and visualize pipelines.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project integrates ReactFlow for creating and visualizing complex workflows in the frontend with FastAPI to manage backend services and APIs. Together, they form a robust pipeline management tool.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Intuitive UI**: Utilize ReactFlow's drag-and-drop interface to create and manage pipelines easily.
+- **FastAPI Backend**: A high-performance backend to handle API requests and data processing.
+- **Scalable Architecture**: Designed to scale and handle complex workflows efficiently.
+- **Real-time Updates**: Reflect changes immediately with a responsive interface.
+- **API Endpoints**: Comprehensive API to interact programmatically with the pipeline.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+Follow these instructions to set up and run the project on your local machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js**: Ensure you have Node.js installed. [Download Node.js](https://nodejs.org/)
+- **Python**: Ensure you have Python 3.7+ installed. [Download Python](https://www.python.org/downloads/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository**:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/mahideveloper1/Reactflow-and-Fast-API
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Frontend Setup**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Backend Setup**:
+   ```bash
+   cd ../backend
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   ```
 
-## Learn More
+### Running the Project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Start the backend server**:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   cd backend
+   uvicorn main:app --reload
+   ```
 
-### Code Splitting
+2. **Start the frontend server**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   cd ../frontend
+   npm start
+   ```
 
-### Analyzing the Bundle Size
+3. Open your browser and navigate to `http://localhost:3000` to see the application in action.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Usage
 
-### Making a Progressive Web App
+1. **Creating a Pipeline**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   - Use the ReactFlow interface to drag and drop nodes.
+   - Connect nodes to define the workflow.
+   - Can create dynamic handles of nodes by using text in format {{text}}
 
-### Advanced Configuration
+2. **Managing Pipelines**:
+   - Can calculate no of Edges , Nodes and can tell whether the nodes structure is Directed Acyclic Graph (DAG) or not.
+   - Utilize the backend APIs to programmatically handle pipelines.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+Contributions are welcome! Please follow these steps to contribute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature-name`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/your-feature-name`).
+5. Open a pull request.
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or feedback, please reach out to:
+
+- **GitHub**: https://github.com/mahideveloper1

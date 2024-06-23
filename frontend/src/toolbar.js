@@ -23,7 +23,6 @@ export const PipelineToolbar = () => {
           marginBottom: "10px",
         }}
       >
-        {/* label jo upar box m dikhega */}
         <DraggableNode type="customInput" label="Input" />
         <DraggableNode type="llm" label="LLM" />
         <DraggableNode type="customOutput" label="Output" />
